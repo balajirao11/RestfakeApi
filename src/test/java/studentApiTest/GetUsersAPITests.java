@@ -15,7 +15,7 @@ import baseTest.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class GetAPITests extends BaseTest {
+public class GetUsersAPITests extends BaseTest {
 
 	@Test
 	public void getAPITest() {
@@ -23,19 +23,19 @@ public class GetAPITests extends BaseTest {
 		// RestAssured.given().when().get(APIPath.apiPath.GET_LIST_OF_POSTS).then().log().all().statusCode(400);
 		test.log(LogStatus.INFO, "My test is starting......");
 
-		Response response = RestAssured.given().when().get(APIPath.apiPath.GET_LIST_OF_POSTS);
+		Response response = RestAssured.given().when().get(APIPath.apiPath.GET_LIST_OF_USERS);
 
 		System.out.println(response.getBody());
 		System.out.println(response.statusCode());
 
-		String resp = response.asString();
-		System.out.println(resp);
-
-		APIVerification.responseCodeValiddation(response, 200);
-
-		APIVerification.responseTimeValidation(response);
-
-		test.log(LogStatus.INFO, "My test is ended......");
+		/*
+		 * APIVerification.responseCodeValiddation(response, 400);
+		 * 
+		 * APIVerification.responseTimeValidation(response);
+		 * 
+		 * 
+		 * test.log(LogStatus.INFO, "My test is ended......");
+		 */
 
 	}
 
